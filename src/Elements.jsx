@@ -1,0 +1,16 @@
+export const Heading1 = {
+    type: "heading1",
+    children: [{ text: '' }]
+}
+export const Heading2 = {
+    type: "heading2",
+    children: [{ text: '' }]
+}
+export const Heading3 = {
+    type: "heading3",
+    children: [{ text: '' }]
+}
+export const Paragraph = {
+    type: "paragraph",
+    children: [{ text: '' }]
+}
