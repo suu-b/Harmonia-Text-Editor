@@ -15,18 +15,18 @@ export const insertParagraph = (editor) => {
 }
 
 export const renderElement = (props) => {
-    const { element, children, attributes } = props
+    let { element, children, attributes } = props
 
     switch (element.type) {
-        case 'heading1':
+        case "heading1":
             return <h1 className="text-3xl font-bold" {...attributes}>{children}</h1>
-        case 'heading1':
-            return <h2 className="text-2xl font-bold" {...attributes}>{children}</h2>
-        case 'heading1':
-            return <h3 className="text-xl font-semibold" {...attributes}>{children}</h3>
-        case 'heading1':
+        case "heading2":
+            return <h2 className="text-xl font-bold" {...attributes}>{children}</h2>
+        case "heading3":
+            return <h3 className="text-lg font-semibold" {...attributes}>{children}</h3>
+        case "paragraph":
             return <p className="text-base" {...attributes}>{children}</p>
         default:
-            return <p className="text-sm" {...attributes}>{children} /</p>
+            return <p className="text-sm" {...attributes}>{children}</p>
     }
 }
