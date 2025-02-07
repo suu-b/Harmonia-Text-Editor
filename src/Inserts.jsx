@@ -26,6 +26,12 @@ export const renderElement = (props) => {
             return <h3 className="text-lg font-semibold" {...attributes}>{children}</h3>
         case "paragraph":
             return <p className="text-base" {...attributes}>{children}</p>
+        case "bulleted-list":
+            return <ul {...attributes} className="list-disc pl-5">{children}</ul>;
+        case "numbered-list":
+            return <ol {...attributes} className="list-decimal pl-5">{children}</ol>;
+        case "list-item":
+            return <li {...attributes}>{children}</li>;
         default:
             return <p className="text-sm" {...attributes}>{children}</p>
     }

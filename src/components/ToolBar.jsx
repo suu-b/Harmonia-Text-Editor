@@ -6,6 +6,7 @@ import { BsBorderOuter } from "react-icons/bs"
 
 import * as Inserts from "../Inserts"
 import * as Marks from "../Marks"
+import * as Lists from "../Lists"
 
 const ToolBar = ({ editor }) => {
     const [selectedBlock, setSelectedBlock] = useState("paragraph")
@@ -78,10 +79,12 @@ const ToolBar = ({ editor }) => {
 
             <div id="misc" className="flex justify-center items-center gap-3">
                 <div id="list" className="flex justify-center items-center text-white">
-                    <button className="cursor-pointer shadow bg-white rounded-lg rounded-r-none p-2 w-10 h-10 flex justify-center text-xl items-center">
+                    <button className="cursor-pointer shadow bg-white rounded-lg rounded-r-none p-2 w-10 h-10 flex justify-center text-xl items-center"
+                    onClick={() => Lists.toggleList(editor, "numbered-list")}>
                         <GoListOrdered color="black" />
                     </button>
-                    <button className="cursor-pointer bg-black rounded-lg rounded-l-none p-2 w-10 h-10 flex justify-center text-xl items-center">
+                    <button className="cursor-pointer bg-black rounded-lg rounded-l-none p-2 w-10 h-10 flex justify-center text-xl items-center"
+                    onClick={() => Lists.toggleList(editor, "bulleted-list")}>
                         <GoListUnordered color="white" />
                     </button>
                 </div>

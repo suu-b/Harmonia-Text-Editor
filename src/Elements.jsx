@@ -14,3 +14,15 @@ export const Paragraph = {
     type: "paragraph",
     children: [{ text: '' }]
 }
+export const NumberedList = {
+    type: 'numbered-list',
+    children: [{ text: '' }]
+}
+export const BulletedList = {
+    type: 'bulleted-list',
+    children: [{ text: '' }]
+}
+export const ListItem = {
+    type: "list-item",
+    children: [{ text: '' }]
+}
