@@ -4,6 +4,7 @@ import { GrTextAlignLeft, GrTextAlignCenter, GrTextAlignRight, GrTextAlignFull }
 import { GoListOrdered, GoListUnordered } from "react-icons/go"
 import { BsBorderOuter } from "react-icons/bs"
 
+import * as Alignment from "../Alignment"
 import * as Inserts from "../Inserts"
 import * as Marks from "../Marks"
 import * as Lists from "../Lists"
@@ -61,14 +62,14 @@ const ToolBar = ({ editor }) => {
             </select>
 
             <div id="alignment" className="flex justify-center items-center gap-3">
-                <GrTextAlignLeft className="cursor-pointer hover:shadow bg-white shadow-xl p-2 rounded" size={40} />
-                <GrTextAlignCenter className="cursor-pointer bg-white shadow-xl p-2 rounded" size={40} />
-                <GrTextAlignRight className="cursor-pointer bg-white shadow-xl p-2 rounded" size={40} />
-                <GrTextAlignFull className="cursor-pointer bg-white shadow-xl p-2 rounded" size={40} />
+                <GrTextAlignLeft className="cursor-pointer hover:shadow bg-white shadow-xl p-2 rounded" size={40} onClick={() => Alignment.toggleAlignment(editor, "left")} />
+                <GrTextAlignCenter className="cursor-pointer bg-white shadow-xl p-2 rounded" size={40} onClick={() => Alignment.toggleAlignment(editor, "center")} />
+                <GrTextAlignRight className="cursor-pointer bg-white shadow-xl p-2 rounded" size={40} onClick={() => Alignment.toggleAlignment(editor, "right")} />
+                <GrTextAlignFull className="cursor-pointer bg-white shadow-xl p-2 rounded" size={40} onClick={() => Alignment.toggleAlignment(editor, "justify")} />
             </div>
 
             <div id="format" className="my-3 flex justify-center items-center">
-                <p className="border rounded border-2 p-1 border-slate-700 py-2 mx-2">
+                <p className="border rounded border-2 p-1 border-slate-700 py-2 mx-2 cursor-pointer"  onClick={() => Marks.toggleMark(editor, "highlight")}>
                     <span className="bg-blue-200 rounded">Highlight</span> Text
                 </p>
                 <p className="border rounded border-2 p-1 border-slate-700 py-2">

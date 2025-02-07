@@ -27,7 +27,9 @@ export const renderLeaf = (props) => {
     if (leaf.underline) {
       children = <u>{children}</u>;
     }
-  
+    if (leaf.highlight) {
+      children = <span className="bg-blue-200 rounded">{children}</span>;
+    }
     return <span {...attributes}>{children}</span>;
   };
   
