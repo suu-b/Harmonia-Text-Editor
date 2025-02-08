@@ -1,6 +1,14 @@
 input:focus {
   outline-width: 0;
 }
+
 [contenteditable="true"]:focus {
   outline: none;
+}
+
+.mark-active {
+  border: 1px solid #7caaff;
+  box-shadow: 0px 0px 8px 3px rgba(124, 170, 255, 0.75);
+  -webkit-box-shadow: 0px 0px 8px 3px rgba(124, 170, 255, 0.75);
+  -moz-box-shadow: 0px 0px 8px 3px rgba(124, 170, 255, 0.75);
 }

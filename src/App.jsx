@@ -5,6 +5,7 @@ import TextEditor from './components/TextEditor'
 import { renderElement } from './render/RenderElement'
 import { renderLeaf } from './render/RenderLeaf'
 import store from "./store/store";
+import './App.css'
 import { Provider } from "react-redux";
 
 const App = () => {
