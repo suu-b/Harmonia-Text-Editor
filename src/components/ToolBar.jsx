@@ -4,10 +4,10 @@ import { GrTextAlignLeft, GrTextAlignCenter, GrTextAlignRight, GrTextAlignFull }
 import { GoListOrdered, GoListUnordered } from "react-icons/go"
 import { BsBorderOuter } from "react-icons/bs"
 
-import * as Alignment from "../Alignment"
-import * as Inserts from "../Inserts"
-import * as Marks from "../Marks"
-import * as Lists from "../Lists"
+import * as Alignment from "../format/Alignment"
+import * as Inserts from "../format/Inserts"
+import * as Marks from "../format/Marks"
+import * as Lists from "../format/Lists"
 
 const ToolBar = ({ editor }) => {
     const [selectedBlock, setSelectedBlock] = useState("paragraph")
