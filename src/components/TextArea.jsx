@@ -72,7 +72,7 @@ const TextArea = ({ editor, renderElement, renderLeaf }) => {
       renderElement={renderElement}
       renderLeaf={renderLeaf}
       onKeyDown={handleKeys}
-      className="px-24 py-12 pb-24 w-[794px] min-h-[1123px] m-auto bg-white shadow-lg border border-gray-200 rounded ring-0 focus:ring-0 shadow-none focus:shadow-none focus:outline-none"
+      className="px-24 py-12 pb-24 min-h-[1123px] m-auto bg-white shadow-lg focus:ring-0 shadow-none focus:shadow-none focus:outline-none"
     />
   )
 
