@@ -3,6 +3,9 @@ import { FaLink, FaCode } from "react-icons/fa"
 import { GrTextAlignLeft, GrTextAlignCenter, GrTextAlignRight, GrTextAlignFull } from "react-icons/gr"
 import { GoListOrdered, GoListUnordered } from "react-icons/go"
 import { BsBorderOuter } from "react-icons/bs"
+import { Transforms, Editor } from "slate"
+import { Range } from "slate"
+import { ReactEditor } from "slate-react"
 
 import * as Alignment from "../format/Alignment"
 import * as Inserts from "../format/Inserts"
@@ -62,6 +65,29 @@ const ToolBar = ({ editor }) => {
         }
     }
 
+    const addCodeBlock = () => {
+        Inserts.insertCodeBlock(editor)
+    }
+
+    const toggleBorderForBlock = () => {
+        if (!editor.selection) return
+
+        const [match] = Editor.nodes(editor, {
+            match: (n) => Editor.isBlock(editor, n) && n.type,
+            mode: "lowest",
+        })
+
+        if (!match) return
+
+        const [node, path] = match
+        const showBorders = !!node.showBorders
+        console.log("Current Node:", node, "Show Borders:", showBorders)
+
+        Transforms.setNodes(editor, { showBorders: !showBorders }, { at: path })
+        ReactEditor.focus(editor)
+    }
+
+
     return (
         <section id="tool-bar" className="bg-gray-100 p-5 rounded border border-gray-300 shadow-xl">
             <select id="font-selection" className="cursor-pointer bg-white rounded w-full text-left p-1 text-lg border mb-5 border-gray-200 text-slate-800 shadow-lg">
@@ -116,8 +142,8 @@ const ToolBar = ({ editor }) => {
                         <GoListUnordered color="white" />
                     </button>
                 </div>
-                <BsBorderOuter size={40} className="bg-white rounded p-2 border border-gray-200 shadow" />
-                <FaCode size={40} className="bg-white rounded p-2 border border-gray-200 shadow" />
+                <BsBorderOuter size={40} onClick={toggleBorderForBlock} className="bg-white rounded p-2 border border-gray-200 shadow" />
+                <FaCode size={40} onClick={addCodeBlock} className="bg-white rounded p-2 border border-gray-200 shadow" />
             </div>
         </section>
     )

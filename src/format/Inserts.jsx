@@ -1,5 +1,5 @@
 import { Transforms } from "slate"
-import { Heading1, Heading2, Heading3, Paragraph } from "../Elements"
+import { CodeBlock, Heading1, Heading2, Heading3, Paragraph } from "../Elements"
 
 export const insertHeading1 = (editor) => {
     Transforms.insertNodes(editor, Heading1)
@@ -12,4 +12,7 @@ export const insertHeading3 = (editor) => {
 }
 export const insertParagraph = (editor) => {
     Transforms.insertNodes(editor, Paragraph)
+}
+export const insertCodeBlock = (editor) => {
+    Transforms.insertNodes(editor, CodeBlock)
 }

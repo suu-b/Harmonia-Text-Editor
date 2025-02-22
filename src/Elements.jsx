@@ -26,3 +26,7 @@ export const ListItem = {
     type: "list-item",
     children: [{ text: '' }]
 }
+export const CodeBlock = {
+    type: "code-block",
+    children: [{ text: '' }]
+}
