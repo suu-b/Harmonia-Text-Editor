@@ -2,6 +2,9 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = { text: "" }
 
+/**
+ * Slice for managing the text editor state.
+ */
 const editorSlice = createSlice({
     name: "editor",
     initialState,

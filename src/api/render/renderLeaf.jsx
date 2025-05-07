@@ -1,3 +1,9 @@
+/**
+ * Defines how different inline styles (leafs) are rendered in the editor.
+ * @param {Object} props - properties passed to the component 
+ * @returns {JSX.Element} - the rendered leaf with respective styles
+ */
+
 export const renderLeaf = (props) => {
     let { attributes, children, leaf } = props;
 
