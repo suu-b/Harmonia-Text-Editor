@@ -1,20 +1,47 @@
 {
   "name": "harmonia-text-editor",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A wrapper around Slate.js to build rich text editors quickly.",
+  "author": "suu-b",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md"
+  ],
   "type": "module",
+  "keywords": [
+    "slate",
+    "editor",
+    "text-editor",
+    "rich-text",
+    "react",
+    "harmonia"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suu-b/Harmonia-Text-Editor"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "slate": "^0.112.0",
     "slate-react": "^0.112.1"
   },
+  "dependencies": {},
   "devDependencies": {
     "@eslint/js": "^9.17.0",
     "@radix-ui/react-select": "^2.2.4",
