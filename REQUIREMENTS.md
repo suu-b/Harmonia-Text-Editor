@@ -14,10 +14,9 @@ Now, lets ideate on the idea project structure:
                     --- Toolbar.jsx //UI for the toolbar to dispatch styling
                 ---/ui
                     ---* // ShadCn components for ui
-            ---/Pilot.jsx //The pilot (a name I use to denote main files when App and Main are already used) file to render the example
+            ---/Pilot.jsx //The pilot (a name I use to denote main files when App and Main are already taken) file to render the example
             ---/TextEditor.jsx //Essentially the file where the api is called and made use of
-
-            ---index.jsx
+        ---index.js The entry point of the package
         ---/api
             ---/render
                     --- renderBlock.jsx //Defines how block elements be rendered.
@@ -28,7 +27,7 @@ Now, lets ideate on the idea project structure:
                     --- toggleLists.js //Toggles lists i.e. numbered list and bulleted list
                     --- toggleMark.js //Toggles inline styles i.e. Bold, Italics, Underlines and highlight
             ---blocks.js //Lists all the block elements allowed
-            ---createEditor.js //routine for the client to initialize an editor
+            ---createEditor.js //Method for the client to initialize an editor
             ---Editor.jsx //Component for the client to embed to make use of the api
 ```
   
