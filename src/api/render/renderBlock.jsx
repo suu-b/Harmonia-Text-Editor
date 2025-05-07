@@ -1,5 +1,11 @@
-export const renderElement = (props) => {
+/**
+ * Defines how different block types are rendered in the editor.
+ * @param {Object} props - The properties passed to the component.
+ * @return {JSX.Element} element - The rendered block with respective styles.
+ */
+export const renderBlock = (props) => {
     let { element, children, attributes } = props
+
     const borderClass = "border p-1 border-3 border-slate-800 rounded"
     const alignmentClass = element.align
         ? element.align === "center"
