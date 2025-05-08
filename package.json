@@ -1,6 +1,6 @@
 {
   "name": "harmonia-text-editor",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A wrapper around Slate.js to build rich text editors quickly.",
   "author": "suu-b",
   "main": "dist/index.js",
