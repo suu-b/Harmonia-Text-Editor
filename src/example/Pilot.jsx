@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
-
-import store from '@/store/store'
-import { createMyEditor } from '@/api/createEditor'
+import React from 'react'
 import { Provider } from "react-redux";
+
+import store from './store/store'
+
+import { createMyEditor } from '@/api/createEditor'
+import { renderBlock } from '@/api/render/renderBlock'
+import { renderLeaf } from '@/api/render/renderLeaf'
+
 import TextEditor from '@/example/TextEditor'
 
 /**
@@ -20,7 +24,7 @@ const Pilot = () => {
 
   return (
     <Provider store={store}>
-      <TextEditor editor={editor} initialValue={initialValue} />
+      <TextEditor editor={editor} initialValue={initialValue} renderBlock={renderBlock} renderLeaf={renderLeaf}/>
     </Provider>
   )
 }

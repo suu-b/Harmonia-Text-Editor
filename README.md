@@ -18,6 +18,7 @@ Following is the project structure and the major utilities of each component:
                     --- Toolbar.jsx //UI for the toolbar to dispatch styling
                 ---/ui
                     ---* // ShadCn components for ui
+            ---/store --- Redux setup       
             ---/Pilot.jsx //The pilot (a name I use to denote main files when App and Main are already taken) file to render the example
             ---/TextEditor.jsx //Essentially the file where the api is called and made use of
         ---index.js The entry point of the package
@@ -42,72 +43,116 @@ npm install harmonia-text-editor
 ```
 
 ## API Guide
+
 ### createMyEditor
-Client must import ```createMyEditor``` method to intialize an instance of editor as:
-```
+The client must import the `createMyEditor` method to initialize an instance of the editor as:
+```javascript
 const editor = createMyEditor()
 ```
 
 ### HarmoniaTextEditor
-```HarmoniaTextEditor``` is the component one must embed inside their layout to enable editing: For example:
-```
+`HarmoniaTextEditor` is the component one must embed inside their layout to enable editing. For example:
+```jsx
 <div
     className="w-full h-full outline-none"
     style={{
-    minHeight: "100%",
-    cursor: "text",
+        minHeight: "100%",
+        cursor: "text",
     }}
-    >
+>
     <Editor editor={editor} initialValue={initialValue} handleTextChange={handleTextChange} />
 </div>
 ```
 
-It expects the editor instance (we initialized earlier) and an initial value: an array of objects. This would be the boilerplate content of your text editor. For example:
-```
-const initialValue = [
-    {
-      type: 'paragraph',
-      children: [{ text: 'Write from here...' }],
-    },
+It expects the following props:
+- **`editor`**: The editor instance (initialized earlier).
+- **`initialValue`**: An array of objects representing the initial content of the editor. For example:
+  ```javascript
+  const initialValue = [
+      {
+        type: 'paragraph',
+        children: [{ text: 'Write from here...' }],
+      },
   ]
+  ```
+- **`handleTextChange`**: A callback function to handle text changes.
+
+---
+
+### toggleAlignment
+The `toggleAlignment` module provides methods to toggle text alignment (left, center, right, justify). For example:
+```javascript
+toggleAlignment.toggleAlignment(editor, "left") // or "center", "right", "justify"
 ```
 
-The following are methods that allow one to apply styles (bold, italics etc.) or insert blocks in the document (h1, h2, etc.). One can probably make a ui for a toolbar and bind the methods below with the respective keys in the ui.
-
-### toggleAlignments
-```toggleAlignments``` is packed with a method. The sole usage is to implement alignment in text: left, right, center or justify. For example:
-```
-toggleAlignments.toggleAlignment(editor, "left") //or center, justify, right to enable alignment
-```
+---
 
 ### toggleBlocks
-```toggleBlocks``` is  packed with methods to insert block elements i.e. h1, h2, h3, paragraph or a code block.
-```
+The `toggleBlocks` module provides methods to insert or toggle block elements such as headings, paragraphs, and code blocks. For example:
+```javascript
+// Insert blocks
+toggleBlocks.insertHeading1(editor)
+toggleBlocks.insertHeading2(editor)
+toggleBlocks.insertHeading3(editor)
+toggleBlocks.insertParagraph(editor)
+toggleBlocks.insertCodeBlock(editor)
+
+// Toggle blocks
 toggleBlocks.toggleHeading1(editor)
 toggleBlocks.toggleHeading2(editor)
 toggleBlocks.toggleHeading3(editor)
 toggleBlocks.toggleParagraph(editor)
 toggleBlocks.toggleCodeBlock(editor)
-
 ```
+
+---
 
 ### toggleLists
-```toggleLists``` is packed with a method to insert lists: numbered or bulleted.
-```
-toggleLists.toggleList("numbered-list") 
-toggleLists.toggleList("bulleted-list") 
-```
-
-### toggleMarks
-```toggleMarks``` is packed with a method to implement inline styles. For example:
-```
-toggleMarks.toggleMark(editor, "bold") 
-toggleMarks.toggleMark(editor, "italic") 
-toggleMarks.toggleMark(editor, "underline") 
-toggleMarks.toggleMark(editor, "highlight") 
+The `toggleLists` module provides methods to toggle list elements (numbered or bulleted). For example:
+```javascript
+toggleLists.toggleList(editor, "numbered-list") 
+toggleLists.toggleList(editor, "bulleted-list") 
 ```
 
-For a reference of the usage of each, one can follow ```/src/example/```
+---
+
+### toggleMark
+The `toggleMark` module provides methods to toggle inline styles such as bold, italic, underline, and highlight. For example:
+```javascript
+toggleMark.toggleMark(editor, "bold") 
+toggleMark.toggleMark(editor, "italic") 
+toggleMark.toggleMark(editor, "underline") 
+toggleMark.toggleMark(editor, "highlight") 
+```
+
+---
+
+### toggleBorders
+The `toggleBorders` method allows toggling borders for the selected block. For example:
+```javascript
+toggleBlocks.toggleBorders(editor)
+```
+
+---
+
+### Rendering Custom Elements
+To customize how blocks and inline styles are rendered, you can use the following:
+
+#### `renderBlock`
+Defines how block elements (e.g., headings, paragraphs) are rendered. For example:
+```javascript
+<Editor renderBlock={renderBlock} />
+```
+
+#### `renderLeaf`
+Defines how inline styles (e.g., bold, italic) are rendered. For example:
+```javascript
+<Editor renderLeaf={renderLeaf} />
+```
+
+---
+
+For a reference implementation of these methods, check the `/src/example/` directory.
 
 ## Credits
 Tho the wrapper is implemented by me, I can bear no credit of creativity/technical expertise as the project is a thin wrapper around a concept materialized by [Slate](https://github.com/ianstormtaylor/slate).

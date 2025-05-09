@@ -1,46 +1,49 @@
 {
   "name": "harmonia-text-editor",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A wrapper around Slate.js to build rich text editors quickly.",
   "author": "suu-b",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "type": "module",
+  "main": "./dist/harmonia-text-editor.cjs.js",
+  "module": "./dist/harmonia-text-editor.es.js",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "import": "./dist/harmonia-text-editor.es.js",
+      "require": "./dist/harmonia-text-editor.cjs.js"
     }
   },
   "files": [
     "dist",
+    "harmonia-text-editor.d.ts",
     "README.md",
-    "LICENSE.md"
+    "License.md"
   ],
-  "type": "module",
-  "keywords": [
-    "slate",
-    "editor",
-    "text-editor",
-    "rich-text",
-    "react",
-    "harmonia"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/suu-b/Harmonia-Text-Editor"
-  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "keywords": [
+    "slate",
+    "react",
+    "editor",
+    "text-editor",
+    "tailwindcss",
+    "rich-text"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suu-b/Harmonia-Text-Editor"
+  },
   "peerDependencies": {
-  "react": ">=18.0.0 <21.0.0",
-  "react-dom": ">=18.0.0 <21.0.0",
-  "slate": "^0.112.0",
-  "slate-react": "^0.112.1"
-},
+    "react": "*",
+    "react-dom": "*",
+    "slate": "*",
+    "slate-react": "*",
+    "tailwindcss": "*",
+    "@tailwindcss/vite": "*"
+  },
   "dependencies": {},
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -50,7 +53,6 @@
     "@radix-ui/react-tooltip": "^1.2.6",
     "@reduxjs/toolkit": "^2.7.0",
     "@shadcn/ui": "^0.0.4",
-    "@tailwindcss/vite": "^4.1.5",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
@@ -67,7 +69,6 @@
     "react-redux": "^9.2.0",
     "redux": "^5.0.1",
     "tailwind-merge": "^3.2.0",
-    "tailwindcss": "^4.1.5",
     "tw-animate-css": "^1.2.9",
     "vite": "^6.0.5"
   }

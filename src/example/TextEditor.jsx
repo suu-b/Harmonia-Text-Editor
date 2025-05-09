@@ -1,18 +1,19 @@
 import { useState } from "react"
-
-import { ToolBar } from "./components/sections/ToolBar"
+import { useDispatch } from "react-redux"
 
 import Editor from "@/api/Editor"
-import { useDispatch } from "react-redux"
-import { setText } from "@/store/editorslice"
+import { ToolBar } from "./components/sections/ToolBar"
+import { setText } from "./store/editorslice"
 
 /**
  * The main text editor that renders the Editor provided by api and the ToolBar.
  * @param {Editor} editor the editor instance
  * @param {Array} initialValue the initial value of the editor 
+ * @param {function} renderBlock function to render the block elements
+ * @param {function} renderLeaf function to render the leaf elements
  * @returns {JSX.Element}
  */
-export default function TextEditor({editor, initialValue}) {
+export default function TextEditor({editor, initialValue, renderBlock, renderLeaf}) {
   const [activeButtons, setActiveButtons] = useState([])
   const dispatch = useDispatch()
 
@@ -69,7 +70,7 @@ export default function TextEditor({editor, initialValue}) {
             cursor: "text",
           }}
         >
-          <Editor editor={editor} initialValue={initialValue} handleTextChange={handleTextChange} />
+          <Editor editor={editor} initialValue={initialValue} handleTextChange={handleTextChange} renderBlock={renderBlock} renderLeaf={renderLeaf}/>
         </div>
       </div>
     </div>
