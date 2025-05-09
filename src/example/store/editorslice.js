@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = { text: "" }
 
 /**
- * Slice for managing the text editor state.
+ * Slice for managing the text editor state. Redux integration demonstrated to give an idea of catching the text changes done in the editor.
  */
 const editorSlice = createSlice({
     name: "editor",

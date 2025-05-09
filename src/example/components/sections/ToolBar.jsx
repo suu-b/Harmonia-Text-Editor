@@ -28,15 +28,14 @@ import {
     TooltipProvider,
     TooltipTrigger,
   } from "@/example/components/ui/tooltip"
-  
-  import * as toggleAlignment from "../../../api/toggle/toggleAlignment"
-  import * as toggleBlocks from "../../../api/toggle/toggleBlocks"
-  import * as toggleLists from "../../../api/toggle/toggleLists"
-  import * as toggleMark from "../../../api/toggle/toggleMark"
 
-  import { Transforms, Editor } from "slate"
-  import { ReactEditor } from "slate-react"
-  import { useState, useEffect } from "react"
+  
+  import * as toggleAlignment from "@/api/toggle/toggleAlignment"
+  import * as toggleBlocks from "@/api/toggle/toggleBlocks"
+  import * as toggleLists from "@/api/toggle/toggleLists"
+  import * as toggleMark from "@/api/toggle/toggleMark"
+
+  import { useState } from "react"
   
   /**
    * The toolbar component that provides the buttons to dispatch the actions to the editor to apply the respective styles.
@@ -50,40 +49,42 @@ import {
   
     const handleBlockChange = (value) => {
       setSelectedBlock(value)
-      switch (value) {
-        case "heading1":
-          toggleBlocks.toggleHeading1(editor)
-          break
-        case "heading2":
-          toggleBlocks.toggleHeading2(editor)
-          break
-        case "heading3":
-          toggleBlocks.toggleHeading3(editor)
-          break
-        case "paragraph":
-          toggleBlocks.toggleParagraph(editor)
-          break
+    
+      const blockMap = {
+        heading1: {
+          insert: toggleBlocks.insertHeading1,
+          toggle: () => toggleBlocks.toggleHeading1(editor),
+        },
+        heading2: {
+          insert: toggleBlocks.insertHeading2,
+          toggle: () => toggleBlocks.toggleHeading2(editor),
+        },
+        heading3: {
+          insert: toggleBlocks.insertHeading3,
+          toggle: () => toggleBlocks.toggleHeading3(editor),
+        },
+        paragraph: {
+          insert: toggleBlocks.insertParagraph,
+          toggle: () => toggleBlocks.toggleParagraph(editor),
+        },
+      }
+    
+      const block = blockMap[value]
+      if (!block) return
+    
+      if (!editor.selection) {
+        block.insert(editor)
+      } else {
+        block.toggle()
       }
     }
-  
+      
     const addCodeBlock = () => {
       toggleBlocks.toggleCodeBlock(editor)
     }
   
     const toggleBorderForBlock = () => {
-      if (!editor.selection) return
-  
-      const [match] = Editor.nodes(editor, {
-        match: (n) => Editor.isBlock(editor, n) && n.type,
-        mode: "lowest",
-      })
-  
-      if (!match) return
-  
-      const [, path] = match
-      const showBorders = !!Editor.node(editor, path)[0].showBorders
-      Transforms.setNodes(editor, { showBorders: !showBorders }, { at: path })
-      ReactEditor.focus(editor)
+      toggleBlocks.toggleBorders(editor)
     }
   
     const ControlButton = ({ icon: Icon, action, active, label }) => (
@@ -234,4 +235,3 @@ import {
       </div>
     )
   }
-  
