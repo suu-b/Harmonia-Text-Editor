@@ -18,6 +18,7 @@ Following is the project structure and the major utilities of each component:
                     --- Toolbar.jsx //UI for the toolbar to dispatch styling
                 ---/ui
                     ---* // ShadCn components for ui
+            ---/store --- Redux setup       
             ---/Pilot.jsx //The pilot (a name I use to denote main files when App and Main are already taken) file to render the example
             ---/TextEditor.jsx //Essentially the file where the api is called and made use of
         ---index.js The entry point of the package
