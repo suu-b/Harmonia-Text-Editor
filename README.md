@@ -1,7 +1,7 @@
 # Harmonia Text Editor
 
 ## What?
-Harmonia text editor is a wrapper built around [Slate.js](https://github.com/ianstormtaylor/slate) as a layer for the client to get access to the api the package offers to develop quickly a rich text editor. The idea surfaced when I was working on [Harmonia](https://github.com/suu-b/Harmonia), a workspace application deriving inspiration from Notion and Joplin. I felt the available text editors either too rigid to work upon or too loose for me to do something effectively (and quickly). Thus, I considered to develop one for myself.
+Harmonia text editor is a wrapper built around [Slate.js](https://github.com/ianstormtaylor/slate) as a layer for the client to get access to the api the package offers to develop quickly a basic text editor. The idea surfaced when I was working on [Harmonia](https://github.com/suu-b/Harmonia), a workspace application deriving inspiration from Notion and Joplin. I felt the available text editors either too rigid to work upon or too loose for me to do something effectively (and quickly). Thus, I considered to develop one for myself.
 
 ## Why?
 The goals are twofold:
