@@ -1,9 +1,7 @@
 import { Editor, Element, Transforms } from "slate"
 
 /**
- * Togles the list block in the editor.
- * If the list is active, it will be removed.
- * If not, it will be set to the specified list type.
+ * Toggles the list block in the editor.
  * @param {Editor} editor the editor instance
  * @param {string} format the format to toggle e.g. "bulleted-list", "numbered-list"
  */
@@ -32,7 +30,7 @@ export const toggleList = (editor, format) => {
 /**
  * Check if the specified list type is active or not
  * @param {Editor} editor the editor instance
- * @param {string} format he format to check e.g. "bulleted-list", "numbered-list"
+ * @param {string} format the format to check e.g. "bulleted-list", "numbered-list"
  * @returns {boolean} true if the list is active else false
  */
  const isListActive = (editor, format) => {

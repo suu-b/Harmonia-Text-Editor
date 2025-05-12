@@ -2,9 +2,10 @@ import path from "path"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import tailwindcss from '@tailwindcss/vite'
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js"
 
 export default defineConfig({
-  plugins: [react(), tailwindcss() ],
+  plugins: [react(), tailwindcss(), cssInjectedByJsPlugin()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
@@ -18,7 +19,7 @@ export default defineConfig({
       fileName: (format) => `harmonia-text-editor.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'slate', 'slate-react'],
+      external: ['react', 'react-dom', 'slate', 'slate-react', 'react/jsx-runtime'],
       output: {
         globals: {
           react: 'React',

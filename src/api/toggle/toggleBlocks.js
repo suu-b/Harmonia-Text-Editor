@@ -51,7 +51,6 @@ export const toggleHeading1 = (editor) => {
     Transforms.setNodes(editor, { type: Heading1.type })
 }
 
-
 /**
  * Toggles the heading2 block in the editor.
  * @param {Editor} editor the editor instance
@@ -90,17 +89,24 @@ export const toggleCodeBlock = (editor) => {
  * @param {Editor} editor the editor instance
  */
 export const toggleBorders = (editor) => {
-    if (!editor.selection) return
-  
-    const [match] = Editor.nodes(editor, {
-      match: (n) => Editor.isBlock(editor, n) && n.type,
-      mode: "lowest",
-    })
+  console.log("toggleBorders called with editor:", editor)
+  if (!editor.selection) {
+    console.warn("No selection found in the editor.")
+    return
+  }
 
-    if (!match) return
-    const [, path] = match
-    const showBorders = !!Editor.node(editor, path)[0].showBorders
-    Transforms.setNodes(editor, { showBorders: !showBorders }, { at: path })
-    ReactEditor.focus(editor)
+  const [match] = Editor.nodes(editor, {
+    match: (n) => Editor.isBlock(editor, n) && n.type,
+    mode: "lowest",
+  })
 
+  if (!match) {
+    console.warn("No matching block found.")
+    return
+  }
+
+  const [, path] = match
+  const showBorders = !!Editor.node(editor, path)[0].showBorders
+  Transforms.setNodes(editor, { showBorders: !showBorders }, { at: path })
+  ReactEditor.focus(editor)
 }

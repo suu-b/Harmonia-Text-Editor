@@ -1,4 +1,6 @@
-export { default as Editor } from "./Editor"
+import './index.css'
+
+export { default as Editor } from "./api/Editor"
 export { createMyEditor } from './api/createEditor'
 
 export * as toggleAlignments from "./api/toggle/toggleAlignment"

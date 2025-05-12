@@ -2,8 +2,6 @@ import { Editor, Transforms, Element } from "slate"
 
 /**
  * Toggle the alignment of the selected text in the editor.
- * If the alignment is already active, it will be removed.
- * If not, it will be set to the specified alignment.
  * @param {Editor} editor the editor instance
  * @param {string} alignment the alignment to toggle e.g. "left", "center", "right", "justify"
  */
@@ -24,8 +22,8 @@ export const toggleAlignment = (editor, alignment) => {
  * @returns {boolean} true if the alignment is active else false
  */
 export const isAlignmentActive = (editor, alignment) => {
-    const [match] = Editor.nodes(editor, {
-        match: (n) => Element.isElement(n) && n.align === alignment,
-    })
-    return !!match
+  const [match] = Editor.nodes(editor, {
+    match: (n) => Element.isElement(n) && n.align === alignment,
+  })
+  return !!match
 }
