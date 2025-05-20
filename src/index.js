@@ -1,6 +1,6 @@
 import './index.css'
 
-export { default as Editor } from "./api/Editor"
+export { default as HarmoniaTextEditor } from "./api/HarmoniaTextEditor"
 export { createMyEditor } from './api/createEditor'
 
 export * as toggleAlignments from "./api/toggle/toggleAlignment"

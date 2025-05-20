@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 
-import Editor from "@/api/Editor"
+import HarmoniaTextEditor from "@/api/HarmoniaTextEditor"
 import { ToolBar } from "./components/sections/ToolBar"
 import { setText } from "./store/editorslice"
 
@@ -70,7 +70,7 @@ export default function TextEditor({editor, initialValue, renderBlock, renderLea
             cursor: "text",
           }}
         >
-          <Editor editor={editor} initialValue={initialValue} handleTextChange={handleTextChange} renderBlock={renderBlock} renderLeaf={renderLeaf}/>
+          <HarmoniaTextEditor editor={editor} initialValue={initialValue} handleTextChange={handleTextChange} renderBlock={renderBlock} renderLeaf={renderLeaf}/>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ import { Slate, Editable } from 'slate-react'
  * @param {function} renderBlock function to render the block elements
  * @param {function} renderLeaf function to render the leaf elements
  */
-const Editor = ({ editor, initialValue, handleTextChange, renderBlock, renderLeaf }) => {
+const HarmoniaTextEditor = ({ editor, initialValue, handleTextChange, renderBlock, renderLeaf }) => {
   return (
     <Slate
       editor={editor}
@@ -28,4 +28,4 @@ const Editor = ({ editor, initialValue, handleTextChange, renderBlock, renderLea
   )
 }
 
-export default Editor
+export default HarmoniaTextEditor
